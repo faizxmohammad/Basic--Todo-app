@@ -62,7 +62,7 @@ export default class Todos extends Component {
 		<h1 style={{textAlign:'center'}}>BASIC TODO APP</h1>
       	<div style={{display:'flex',justifyContent:'center',alignItens:'center',marginTop:'3rem'}} >
         		<input type="text" value = {this.state.currentTask} onChange={this.handleChange} placeholder="Add your todo here..."></input>
-        		<button onClick={this.handleSubmit}>Submit</button>
+        		<button onClick={this.handleSubmit} style ={{marginLeft:'1rem'}}>Add Todo</button>
         		<ul>
           			{this.state.tasks.map((taskObj) => (
             			<li key={taskObj.id}>
