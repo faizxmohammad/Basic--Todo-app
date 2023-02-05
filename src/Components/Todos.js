@@ -14,18 +14,18 @@ export default class Todos extends Component {
     };
   }
 
-  componentDidUpdate(prevState) {
-    if (prevState.tasks !== this.state.tasks) {
-      localStorage.setItem('tasks', JSON.stringify(this.state.tasks));
-    }
-  }
+ // componentDidUpdate(prevState) {
+   // if (prevState.tasks !== this.state.tasks) {
+   //   localStorage.setItem('tasks', JSON.stringify(this.state.tasks));
+   // }
+  //}
 
-  componentDidMount() {
-    const storedTasks = JSON.parse(localStorage.getItem('tasks'));
-    if (storedTasks) {
-      this.setState({ tasks: storedTasks });
-    }
-  }
+  //componentDidMount() {
+  //  const storedTasks = JSON.parse(localStorage.getItem('tasks'));
+    //if (storedTasks) {
+   //   this.setState({ tasks: storedTasks });
+  //  }
+  //}
 
 
   handleChange = (e) =>{
@@ -58,18 +58,21 @@ export default class Todos extends Component {
   render() {
     console.log("render this")
     return (
-      <div>
-        <input type="text" value = {this.state.currentTask} onChange={this.handleChange}></input>
-        <button onClick={this.handleSubmit}>Submit</button>
-        <ul>
-          {this.state.tasks.map((taskObj) => (
-            <li key={taskObj.id}>
-              <p>{taskObj.task}</p>
-              <button onClick={() => this.handleDelete(taskObj.id)}>Delete</button>
-            </li>
-          ))}
-        </ul>
-      </div>
+	<div> 
+		<h1 style={{textAlign:'center'}}>BASIC TODO APP</h1>
+      	<div style={{display:'flex',justifyContent:'center',alignItens:'center',marginTop:'3rem'}} >
+        		<input type="text" value = {this.state.currentTask} onChange={this.handleChange} placeholder="Add your todo here..."></input>
+        		<button onClick={this.handleSubmit}>Submit</button>
+        		<ul>
+          			{this.state.tasks.map((taskObj) => (
+            			<li key={taskObj.id}>
+              			<p>{taskObj.task}</p>
+              			<button onClick={() => this.handleDelete(taskObj.id)}>Delete</button>
+            			</li>
+          			))}
+        		</ul>
+      	</div>
+	</div>
     );
   }
 }
